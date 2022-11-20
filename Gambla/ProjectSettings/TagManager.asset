@@ -7,6 +7,7 @@ TagManager:
   - Nepomerljiv
   - Smrt
   - Bam
+  - Powerup
   layers:
   - Default
   - TransparentFX

@@ -546,8 +546,9 @@ MonoBehaviour:
   text: {fileID: 54413585}
   brojac: 0
   constantSpeed: 7
-  Koliko: 4
-  Sprite: {fileID: 7482667652216324306, guid: a7b1422f94dc5264f9fec93573da31a4, type: 3}
+  Koliko: 20
+  SpriteKocka: {fileID: 7482667652216324306, guid: a7b1422f94dc5264f9fec93573da31a4, type: 3}
+  SpriteKruga: {fileID: -2413806693520163455, guid: ac4a62ad223a1d14caf632d7d86d503c, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +866,7 @@ GameObject:
   - component: {fileID: 1758420881}
   - component: {fileID: 1758420880}
   - component: {fileID: 1758420882}
+  - component: {fileID: 1758420883}
   m_Layer: 0
   m_Name: Zid desno
   m_TagString: Nepomerljiv
@@ -952,7 +954,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.09732643, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -963,8 +965,31 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.80534714, y: 1}
   m_EdgeRadius: 0
+--- !u!68 &1758420883
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758420879}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.29079443, y: 0.49791119}
+  - {x: -0.502771, y: -0.0009792699}
+  - {x: -0.29498386, y: -0.49581915}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &2036051810
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,7 +1005,7 @@ GameObject:
   - component: {fileID: 2036051817}
   m_Layer: 0
   m_Name: Igrac
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

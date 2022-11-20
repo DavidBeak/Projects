@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using System.Linq;
+using JetBrains.Annotations;
 
 public class MoveLoptica : MonoBehaviour { 
     public Rigidbody2D rigidbody = new Rigidbody2D();
@@ -11,7 +12,8 @@ public class MoveLoptica : MonoBehaviour {
     public float brojac = 0;
     public float constantSpeed;
     public float Koliko = 4;
-    public Sprite Sprite;
+    public Sprite SpriteKocka;
+    public Sprite SpriteKruga;
     GameObject[] jk;
     void Start() { 
     jk = new GameObject[(int)Koliko];
@@ -29,20 +31,36 @@ public class MoveLoptica : MonoBehaviour {
         //Udarac loptice u igraca
         if (collision.collider.tag != "Nepomerljiv") {
 
-        if (GameObject.Find("Alo") == null) Spawn(ref Koliko,ref jk,Sprite);
+        if (GameObject.Find("Alo") == null) Spawn(ref Koliko,ref jk,SpriteKocka);
 
            rigidbody.gravityScale = 0;
         }
         //Udarac loptice u metu
         if (collision.collider.tag == "Bam"){
-
+            Powerup(collision.collider.gameObject);
             Destroy(collision.collider.gameObject);
             brojac++;
-            //Debug.Log(brojac);
             text.GetComponent<TextMeshPro>().text = brojac.ToString();
         }
     
     }
+    //powerup
+    public void Powerup(GameObject Unistenblok) {
+        System.Random r = new System.Random();
+        // int sansa = r.Next(1, 101);
+        int sansa = 10;
+        if (sansa % 10 == 0) { 
+        GameObject powerupic = new GameObject("Power",typeof(Rigidbody2D),typeof(SpriteRenderer),typeof(Pwup));
+            powerupic.tag = "Powerup";
+            powerupic.transform.position = Unistenblok.transform.position;
+            powerupic.transform.localScale = new Vector2(0.75f,0.75f);
+            powerupic.GetComponent<SpriteRenderer>().sprite = SpriteKruga;
+            powerupic.GetComponent<SpriteRenderer>().color = Color.black;
+            powerupic.AddComponent<CircleCollider2D>().isTrigger = true;
+        }
+    
+    }
+
    //Novi nivo
     public void Spawn(ref float Koliko,ref GameObject[] jk, Sprite Sprite)
     {
